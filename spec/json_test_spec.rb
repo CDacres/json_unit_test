@@ -19,11 +19,26 @@ describe 'JSON example tests' do
   end
 
   it "the colour red should have the hex value of '#FF0' " do
-    expect(@json['colors'][2]['code']['hex']).to eq('#FF0')
+    # expect(@json['colors'][2]['code']['hex']).to eq('#FF0')
+
+
+    @json['colors'].each do |i|
+      if i["color"] == "red"
+        expect(i["code"]["hex"]).to eq("#FF0")
+      end
+    end
+
   end
 
   it "the colour green should have the RGBA value of '0,255,0,1' " do
-    expect(@json['colors'][5]['code']['rgba']).to eq([0,255,0,1])
+    # expect(@json['colors'][5]['code']['rgba']).to eq([0,255,0,1])
+
+    @json['colors'].each do |i|
+      if i["color"] == "green"
+        expect(i["code"]["rgba"]).to eq([0,255,0,1])
+      end
+    end
+
   end
 
 end
